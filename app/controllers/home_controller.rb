@@ -1,8 +1,8 @@
 class HomeController < ApplicationController
   def index
-    @movies = Movie.all.sort_by { |votes| votes }.reverse
-    @books = Book.all.sort_by { |votes| votes }.reverse
-    @albums = Album.all.sort_by { |votes| votes }.reverse
+    @movies = Movie.order(votes: :desc).limit(5)
+    @books = Book.order(votes: :desc).limit(5)
+    @albums = Album.order(votes: :desc).limit(5)
   end
 
 end

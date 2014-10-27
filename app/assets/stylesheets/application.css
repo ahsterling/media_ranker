@@ -15,12 +15,24 @@
  */
 
 .column {
-  display: inline-block;
   margin: 5px;
-  
+  float: left;
+  width: 30%;
+  text-align: center;
+}
+
+.header {
+  width: 90%;
+  margin: 0 auto;
 }
 
 .header a {
   text-decoration: none;
   color: #07a278;
+}
+
+.content_container {
+  display: inline-block;
+  width: 100%;
+  margin: 0 auto;
 }
