@@ -1,4 +1,29 @@
 Rails.application.routes.draw do
+
+  get '/',                to: "home#index"
+
+  get '/books',           to: "books#index",  as: :books
+  get '/books/new',       to: "books#new",    as: :new_book
+  post '/books',          to: "books#create"
+  get '/books/:id',       to: "books#show",   as: :book
+  get '/books/:id/edit',  to: "books#edit",   as: :edit_book
+  patch '/books/:id',     to: "books#update"
+
+  get '/movies',          to: "movies#index", as: :movies
+  get '/movies/new',      to: "movies#new",   as: :new_movie
+  post 'movies',          to: "movies#create"
+  get '/movies/:id',      to: "movies#show",  as: :movie
+  get '/movies/:id/edit', to: "movies#edit",  as: :edit_movie
+  patch '/movies/:id',    to: "movies#update"
+
+  get "/albums",          to: "albums#index", as: :albums
+  get '/albums/new',      to: "albums#new",   as: :new_album
+  post '/albums',         to: "albums#create"
+  get '/albums/:id',      to: "albums#show",  as: :album
+  get '/albums/:id/edit', to: "albums#edit",  as: :edit_album
+  patch '/albums/:id',    to: "albums#update"
+
+  root "home#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,10 @@
+<h2>All Albums</h2>
+
+<% @albums.each do |album| %>
+   <h3><%= link_to album.title, album_path(album.id)%></h3>
+   <p><%= album.artist %></p>
+   <p><%= album.description %></p>
+   <p><%= album.votes %></p>
+<% end %>
+
+<%= link_to "Add an Album", new_album_path %>

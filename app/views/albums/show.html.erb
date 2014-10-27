@@ -1,0 +1,6 @@
+<h2><%= @album.title %></h2>
+<h3>Directed by: <%= @album.artist %></h3>
+<p> <%= @album.description %></p>
+<p>Ranking: <%= @album.votes %></p>
+
+<%= link_to "Edit #{@album.title}", edit_album_path(@album.id) %>

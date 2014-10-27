@@ -1,0 +1,6 @@
+<h2><%= @book.title %></h2>
+<h3>Directed by: <%= @book.author %></h3>
+<p> <%= @book.description %></p>
+<p>Ranking: <%= @book.votes %></p>
+
+<%= link_to "Edit #{@book.title}", edit_book_path(@book.id) %>

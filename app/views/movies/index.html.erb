@@ -1,0 +1,10 @@
+<h2>All Movies</h2>
+
+<% @movies.each do |movie| %>
+   <h3><%= link_to movie.title, movie_path(movie.id) %></h3>
+   <p><%= movie.director %></p>
+   <p><%= movie.description %></p>
+   <p><%= movie.votes %></p>
+<% end %>
+
+<%= link_to "Add a Movie", new_movie_path %>
