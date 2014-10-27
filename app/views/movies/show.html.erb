@@ -3,4 +3,13 @@
 <p> <%= @movie.description %></p>
 <p>Ranking: <%= @movie.votes %></p>
 
-<%= link_to "Edit #{@movie.title}", edit_movie_path(@movie.id) %>
+<%= form_for @movie, method: :patch, action: edit_movie_path(@movie.id) do |f| %>
+  <%= f.hidden_field :votes, value: (@movie.votes += 1) %>
+  <%= f.submit "Upvote" %>
+<% end %>
+
+<%= button_to "Edit #{@movie.title}", edit_movie_path(@movie.id), method: :patch %>
+<%= button_to "Delete #{@movie.title}", delete_movie_path(@movie.id), method: :delete %>
+
+<p><%= link_to "View All Movies", movies_path %></p>
+<p><%= link_to "View All Media", root_path %></p>

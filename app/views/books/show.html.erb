@@ -3,4 +3,13 @@
 <p> <%= @book.description %></p>
 <p>Ranking: <%= @book.votes %></p>
 
-<%= link_to "Edit #{@book.title}", edit_book_path(@book.id) %>
+<%= form_for @book, method: :patch, action: edit_book_path(@book.id) do |f| %>
+  <%= f.hidden_field :votes, value: (@book.votes += 1) %>
+  <%= f.submit "Upvote" %>
+<% end %>
+
+<%= button_to "Edit #{@book.title}", edit_book_path(@book.id), method: :patch %>
+<%= button_to "Delete #{@book.title}", delete_book_path(@book.id), method: :delete %>
+
+<p><%= link_to "View All Books", books_path %></p>
+<p><%= link_to "View All Media", root_path %></p>

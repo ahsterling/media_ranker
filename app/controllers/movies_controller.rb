@@ -12,7 +12,7 @@ class MoviesController < ApplicationController
   end
 
   def create
-    @movie = Movie.new(params.require(:movie).permit(:title, :director, :description))
+    @movie = Movie.new(params.require(:movie).permit(:title, :director, :description, :votes))
     @movie.votes = 0
     if @movie.save
       redirect_to movies_path
@@ -27,10 +27,17 @@ class MoviesController < ApplicationController
 
   def update
     @movie = Movie.find_by(id: params[:id])
-    if @movie.update(params.require(:movie).permit(:title, :director, :description))
+    if @movie.update(params.require(:movie).permit(:title, :director, :description, :votes))
       redirect_to movie_path(@movie.id)
     else
       render :edit
+    end
+  end
+
+  def destroy
+    @movie = Movie.find_by(id: params[:id])
+    if @movie.destroy
+      redirect_to movies_path
     end
   end
 end

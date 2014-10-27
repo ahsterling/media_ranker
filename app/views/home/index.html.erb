@@ -4,6 +4,7 @@
      <h3><%= link_to movie.title, movie_path(movie.id) %></h3>
      <p>Ranked <%= movie.votes %></p>
   <% end %>
+  <%= link_to "See All Movies", movies_path %>
 </div>
 
 <div class = "column">
@@ -12,6 +13,7 @@
      <h3><%= link_to book.title, book_path(book.id) %></h3>
      <p>Ranked <%= book.votes %></p>
   <% end %>
+  <%= link_to "See All Books", books_path %>
 </div>
 
 <div class = "column">
@@ -20,4 +22,5 @@
      <h3><%= link_to album.title, album_path(album.id) %></h3>
      <p>Ranked <%= album.votes %></p>
   <% end %>
+  <%= link_to "See All Albums", albums_path %>
 </div>

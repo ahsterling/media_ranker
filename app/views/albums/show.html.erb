@@ -3,4 +3,20 @@
 <p> <%= @album.description %></p>
 <p>Ranking: <%= @album.votes %></p>
 
-<%= link_to "Edit #{@album.title}", edit_album_path(@album.id) %>
+<div class = "upvote_button">
+  <%= form_for @album, method: :patch, action: edit_album_path(@album.id) do |f| %>
+    <%= f.hidden_field :votes, value: (@album.votes += 1) %>
+    <%= f.submit "Upvote" %>
+  <% end %>
+</div>
+
+<div class = "edit_button">
+  <%= button_to "Edit #{@album.title}", edit_album_path(@album.id), method: :get %>
+</div>
+
+<div class = "delete_button">
+  <%= button_to "Delete #{@album.title}", delete_album_path(@album.id), method: :delete %>
+</div>
+
+<p><%= link_to "View All Albums", albums_path %></p>
+<p><%= link_to "View All Media", root_path %></p>

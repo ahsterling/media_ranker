@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/books/:id',       to: "books#show",   as: :book
   get '/books/:id/edit',  to: "books#edit",   as: :edit_book
   patch '/books/:id',     to: "books#update"
+  delete '/books/:id',    to: "books#destroy", as: :delete_book
 
   get '/movies',          to: "movies#index", as: :movies
   get '/movies/new',      to: "movies#new",   as: :new_movie
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
   get '/movies/:id',      to: "movies#show",  as: :movie
   get '/movies/:id/edit', to: "movies#edit",  as: :edit_movie
   patch '/movies/:id',    to: "movies#update"
+  delete '/movies/:id',   to: "movies#destroy", as: :delete_movie
 
   get "/albums",          to: "albums#index", as: :albums
   get '/albums/new',      to: "albums#new",   as: :new_album
@@ -22,6 +24,7 @@ Rails.application.routes.draw do
   get '/albums/:id',      to: "albums#show",  as: :album
   get '/albums/:id/edit', to: "albums#edit",  as: :edit_album
   patch '/albums/:id',    to: "albums#update"
+  delete '/albums/:id',   to: "albums#destroy", as: :delete_album
 
   root "home#index"
   # The priority is based upon order of creation: first created -> highest priority.

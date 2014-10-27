@@ -5,6 +5,12 @@
    <p><%= album.artist %></p>
    <p><%= album.description %></p>
    <p><%= album.votes %></p>
+
+   <%= form_for album, method: :patch, action: edit_album_path(album.id) do |f| %>
+     <%= f.hidden_field :votes, value: (album.votes += 1) %>
+     <%= f.submit "Upvote" %>
+   <% end %>
+
 <% end %>
 
 <%= link_to "Add an Album", new_album_path %>
