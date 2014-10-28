@@ -13,6 +13,7 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(params.require(:book).permit(:title, :author, :description, :votes))
+    @book.votes = 0
     if @book.save
       redirect_to books_path
     else

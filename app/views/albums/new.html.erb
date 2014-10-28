@@ -1,12 +1,3 @@
 <h2>Add an album</h2>
 
-<%= form_for @album do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :artist %>
-  <%= f.text_field :artist %>
-  <%= f.label :description  %>
-  <%= f.text_area :description %>
-  <%= f.hidden_field :votes, value: 0 %>
-  <%= f.submit "Add Album" %>
-<% end %>
+<%= render "form" %>

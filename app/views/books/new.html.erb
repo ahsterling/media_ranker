@@ -1,12 +1,3 @@
 <h2>Add a book:</h2>
 
-  <%= form_for @book do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    <%= f.label :author %>
-    <%= f.text_field :author%>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-    <%= f.hidden_field :votes, value: 0 %>
-    <%= f.submit "Add Book" %>
-  <% end %>
+<%= render "form" %>

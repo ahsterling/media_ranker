@@ -13,6 +13,7 @@ class AlbumsController < ApplicationController
 
   def create
     @album = Album.new(params.require(:album).permit(:title, :artist, :description, :votes))
+    @album.votes = 0
     if @album.save
       redirect_to albums_path
     else

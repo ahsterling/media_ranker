@@ -14,7 +14,68 @@
  *= require_self
  */
 
+body {
+  background-color: #EAE2C6;
+}
 
-.sidebar {
-  border-right: 1px solid gray;
+h2 {
+  color: #109298;
+}
+
+h3 {
+  color: #A0A83E;
+  font-size: 1.5em;
+}
+
+.navbar {
+  margin-top: 5px;
+}
+
+.main {
+  /*border-left: 1px solid gray;*/
+}
+
+
+
+a {
+  color: #A0A83E;
+}
+
+.main .col-sm-4 {
+  color: #2F2E29;
+}
+
+.page-body {
+  margin: 5px;
+}
+
+.navbar-default .navbar-brand {
+  font-size: 30pt;
+  color: #D1542A;
+}
+
+.navbar-default .navbar-nav li a {
+  font-size: 20pt;
+  color: #109298;
+}
+
+.btn {
+  display: inline-block;
+
+}
+
+.btn-danger {
+  background-color: #D1542A;
+}
+
+.btn-danger:hover {
+  background-color: #913A1D;
+}
+
+.btn-primary {
+  background-color: #109298;
+}
+
+.btn-primary:hover {
+  background-color: #0C6E73;
 }

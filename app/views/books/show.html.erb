@@ -1,15 +1,22 @@
-<h2><%= @book.title %></h2>
-<h3>Directed by: <%= @book.author %></h3>
-<p> <%= @book.description %></p>
-<p>Ranking: <%= @book.votes %></p>
+<div class = "row">
+  <div class = "col-xs-6">
+    <h2><%= @book.title %></h2>
+    <h3>Directed by: <%= @book.author %></h3>
+    <p> <%= @book.description %></p>
+    <h4>Ranking: <%= @book.votes %></h4>
+  </div>
+  <div class = "col-xs-6">
+    <p>
+      <%= form_for @book, method: :patch, action: edit_book_path(@book.id) do |f| %>
+        <%= f.hidden_field :votes, value: (@book.votes += 1) %>
+        <%= f.submit "Upvote", class: "btn btn-primary" %>
+      <% end %>
+    </p>
 
-<%= form_for @book, method: :patch, action: edit_book_path(@book.id) do |f| %>
-  <%= f.hidden_field :votes, value: (@book.votes += 1) %>
-  <%= f.submit "Upvote" %>
-<% end %>
+    <p><%= button_to "Edit #{@book.title}", edit_book_path(@book.id), method: :get, class: "btn btn-default" %></p>
+    <p><%= button_to "Delete #{@book.title}", delete_book_path(@book.id), method: :delete, class: "btn btn-danger" %><p>
 
-<%= button_to "Edit #{@book.title}", edit_book_path(@book.id), method: :patch %>
-<%= button_to "Delete #{@book.title}", delete_book_path(@book.id), method: :delete %>
-
-<p><%= link_to "View All Books", books_path %></p>
-<p><%= link_to "View All Media", root_path %></p>
+    <p><%= link_to "View All Books", books_path, class: "btn btn-default" %></p>
+    <p><%= link_to "View All Media", root_path, class: "btn btn-default" %></p>
+  </div>
+</div> <!-- Column -->

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MediaRanker</title>
+  <title>Media Ranker</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -9,11 +9,32 @@
 </head>
 <body>
 <div class = 'container'>
-  <div class = "header">
-    <h1><%= link_to "Media Ranker", root_path %></h1>
-  </div>
-  <hr>
-  <div class = "row">
+
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Media Ranker</a>
+      </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><%= link_to "Movies", movies_path %></li>
+          <li><%= link_to "Books", books_path %></li>
+          <li><%= link_to "Albums", albums_path %></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+  <div class = "page-body row">
     <div class = "sidebar col-sm-3">
       <h2>About</h2>
       Do you want to know what the best of the best is?  Why not crowdsource your problem?  Add your own movies, books, or albums, or just vote for the ones you like best! This is the definitive resource for the best stuff for the entire internet, just so you know.  Amazing, right?  Yes, yes it is.
