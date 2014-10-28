@@ -1,16 +1,24 @@
 <h2>All Albums</h2>
 
-<% @albums.each do |album| %>
-   <h3><%= link_to album.title, album_path(album.id)%></h3>
-   <p><%= album.artist %></p>
-   <p><%= album.description %></p>
-   <p><%= album.votes %></p>
+<table class = "table">
+  <tr>
+    <td><strong>Ranking</strong></td>
+    <td><strong>Name</strong></td>
+    <td><strong>Upvote</strong></td>
+  </tr>
+  <% @albums.each do |album| %>
+    <tr>
+      <td>Ranked: <%= album.votes %></td>
+      <td><%= link_to album.title, album_path(album.id) %></td>
+      <td>
+        <%= form_for album, method: :patch, action: edit_album_path(album.id) do |f| %>
+          <%= f.hidden_field :votes, value: (album.votes += 1) %>
+          <%= f.submit "Upvote", class: "btn btn-default" %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
 
-   <%= form_for album, method: :patch, action: edit_album_path(album.id) do |f| %>
-     <%= f.hidden_field :votes, value: (album.votes += 1) %>
-     <%= f.submit "Upvote" %>
-   <% end %>
 
-<% end %>
-
-<%= link_to "Add an Album", new_album_path %>
+<%= link_to "Add an Album", new_album_path, class: "btn btn-default" %>

@@ -1,15 +1,17 @@
-<h2><%= @movie.title %></h2>
-<h3>Directed by: <%= @movie.director %></h3>
-<p> <%= @movie.description %></p>
-<p>Ranking: <%= @movie.votes %></p>
+<div class = "row">
+  <h2><%= @movie.title %></h2>
+  <h3>Directed by: <%= @movie.director %></h3>
+  <p> <%= @movie.description %></p>
+  <p>Ranking: <%= @movie.votes %></p>
+</div>
 
 <%= form_for @movie, method: :patch, action: edit_movie_path(@movie.id) do |f| %>
   <%= f.hidden_field :votes, value: (@movie.votes += 1) %>
-  <%= f.submit "Upvote" %>
+  <%= f.submit "Upvote", class: "btn btn-primary" %>
 <% end %>
 
-<%= button_to "Edit #{@movie.title}", edit_movie_path(@movie.id), method: :patch %>
-<%= button_to "Delete #{@movie.title}", delete_movie_path(@movie.id), method: :delete %>
+<p><%= button_to "Edit #{@movie.title}", edit_movie_path(@movie.id), method: :patch, class: "btn btn-default" %></p>
+<p><%= button_to "Delete #{@movie.title}", delete_movie_path(@movie.id), method: :delete, class: "btn btn-danger" %></p>
 
-<p><%= link_to "View All Movies", movies_path %></p>
-<p><%= link_to "View All Media", root_path %></p>
+<p><%= link_to "View All Movies", movies_path, class: "btn btn-default" %></p>
+<p><%= link_to "View All Media", root_path, class: "btn btn-default" %></p>

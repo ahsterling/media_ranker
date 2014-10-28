@@ -5,15 +5,23 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<div class = "header">
-  <h1><%= link_to "Media Ranker", root_path %></h1>
+<div class = 'container'>
+  <div class = "header">
+    <h1><%= link_to "Media Ranker", root_path %></h1>
+  </div>
+  <hr>
+  <div class = "row">
+    <div class = "sidebar col-sm-3">
+      <h2>About</h2>
+      Do you want to know what the best of the best is?  Why not crowdsource your problem?  Add your own movies, books, or albums, or just vote for the ones you like best! This is the definitive resource for the best stuff for the entire internet, just so you know.  Amazing, right?  Yes, yes it is.
+    </div>
+    <div class = "main col-sm-9">
+      <%= yield %>
+    </div>
+  </div>
 </div>
-
-<hr>
-
-<%= yield %>
-
 </body>
 </html>
