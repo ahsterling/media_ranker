@@ -1,32 +1,35 @@
 Rails.application.routes.draw do
 
-  get '/',                to: "home#index"
+  resources :books, :albums, :movies
+  # get '/',                to: "home#index"
 
-  get '/books',           to: "books#index",  as: :books
-  get '/books/new',       to: "books#new",    as: :new_book
-  post '/books',          to: "books#create"
-  get '/books/:id',       to: "books#show",   as: :book
-  get '/books/:id/edit',  to: "books#edit",   as: :edit_book
-  patch '/books/:id',     to: "books#update"
-  delete '/books/:id',    to: "books#destroy", as: :delete_book
+  # get '/books',           to: "books#index",  as: :books
+  # post '/books',          to: "books#create"
+  # get '/books/:id',       to: "books#show",   as: :book
+  # patch '/books/:id',     to: "books#update"
+  # delete '/books/:id',    to: "books#destroy"
+  # get '/books/new',       to: "books#new",    as: :new_book
+  # get '/books/:id/edit',  to: "books#edit",   as: :edit_book
 
-  get '/movies',          to: "movies#index", as: :movies
-  get '/movies/new',      to: "movies#new",   as: :new_movie
-  post 'movies',          to: "movies#create"
-  get '/movies/:id',      to: "movies#show",  as: :movie
-  get '/movies/:id/edit', to: "movies#edit",  as: :edit_movie
-  patch '/movies/:id',    to: "movies#update"
-  delete '/movies/:id',   to: "movies#destroy", as: :delete_movie
 
-  get "/albums",          to: "albums#index", as: :albums
-  get '/albums/new',      to: "albums#new",   as: :new_album
-  post '/albums',         to: "albums#create"
-  get '/albums/:id',      to: "albums#show",  as: :album
-  get '/albums/:id/edit', to: "albums#edit",  as: :edit_album
-  patch '/albums/:id',    to: "albums#update"
-  delete '/albums/:id',   to: "albums#destroy", as: :delete_album
+  # get '/movies',          to: "movies#index", as: :movies
+  # post 'movies',          to: "movies#create"
+  # get '/movies/:id',      to: "movies#show",  as: :movie
+  # patch '/movies/:id',    to: "movies#update"
+  # delete '/movies/:id',   to: "movies#destroy"
+  # get '/movies/new',      to: "movies#new",   as: :new_movie
+  # get '/movies/:id/edit', to: "movies#edit",  as: :edit_movie
 
-  root "home#index"
+
+  # get "/albums",          to: "albums#index", as: :albums
+  # post '/albums',         to: "albums#create"
+  # get '/albums/:id',      to: "albums#show",  as: :album
+  # patch '/albums/:id',    to: "albums#update"
+  # delete '/albums/:id',   to: "albums#destroy"
+  # get '/albums/new',      to: "albums#new",   as: :new_album
+  # get '/albums/:id/edit', to: "albums#edit",  as: :edit_album
+
+  root to: "home#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

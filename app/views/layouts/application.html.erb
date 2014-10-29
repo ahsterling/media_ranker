@@ -4,22 +4,26 @@
   <title>Media Ranker</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
+  <link href='http://fonts.googleapis.com/css?family=Bitter:400,700,400italic' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 <div class = 'container'>
-
   <nav class="navbar navbar-default" role="navigation">
+
     <div class="container-fluid">
+
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
+        <%= image_tag "tv.png", class: "logo" %>
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
+
         <a class="navbar-brand" href="/">Media Ranker</a>
       </div>
 
@@ -36,14 +40,18 @@
 
   <div class = "page-body row">
 
-    <div class = "main col-sm-9">
+    <div class = "main col-md-9">
       <%= yield %>
     </div>
-    <div class = "sidebar col-sm-3">
+    <div class = "sidebar col-md-3">
       <h2>About</h2>
       <hr>
+      <%= image_tag "dino.jpg", class: 'img-circle about-pic' %>
       <p>Do you want to know what the best of the best is?  Why not crowdsource your problem?  Add your own movies, books, or albums, or just vote for the ones you like best! This is the definitive resource for the best stuff for the entire internet, just so you know.  Amazing, right?  Yes, yes it is.</p>
     </div>
+  </div>
+  <div class = "footer">
+    Created October 2014
   </div>
 </div>
 </body>

@@ -1,22 +1,24 @@
 <div class = "row">
-  <div class = "show col-xs-6">
+  <div class = "show col-xs-11">
     <h2><%= @book.title %></h2>
+    <hr>
+    <%= image_tag "#{@book.imageurl}", class: "img-rounded img-responsive" %>
     <h3>Directed by: <%= @book.author %></h3>
     <p> <%= @book.description %></p>
     <h4>Ranking: <%= @book.votes %></h4>
-  </div>
-  <div class = "col-xs-6">
+
+    <%= form_for @book, method: :patch, action: edit_book_path(@book.id) do |f| %>
+      <%= f.hidden_field :votes, value: (@book.votes += 1) %>
+      <%= f.submit "Upvote", class: "btn btn-sm btn-primary" %>
+    <% end %>
+
+
+    <%= button_to "Edit #{@book.title}", edit_book_path(@book.id), method: :get, class: "btn btn-sm btn-default" %>
+    <%= button_to "Delete #{@book.title}", book_path(@book.id), method: :delete, class: "btn btn-sm btn-danger" %>
+
     <p>
-      <%= form_for @book, method: :patch, action: edit_book_path(@book.id) do |f| %>
-        <%= f.hidden_field :votes, value: (@book.votes += 1) %>
-        <%= f.submit "Upvote", class: "btn btn-primary" %>
-      <% end %>
+      <%= link_to "View All Books", books_path, class: "btn btn-sm btn-default" %>
+      <%= link_to "View All Media", root_path, class: "btn btn-sm btn-default" %>
     </p>
-
-    <p><%= button_to "Edit #{@book.title}", edit_book_path(@book.id), method: :get, class: "btn btn-default" %></p>
-    <p><%= button_to "Delete #{@book.title}", delete_book_path(@book.id), method: :delete, class: "btn btn-danger" %><p>
-
-    <p><%= link_to "View All Books", books_path, class: "btn btn-default" %></p>
-    <p><%= link_to "View All Media", root_path, class: "btn btn-default" %></p>
   </div>
 </div> <!-- Column -->
