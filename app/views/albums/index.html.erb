@@ -1,24 +1,5 @@
 <h2>All Albums</h2>
 
-<table class = "table">
-  <tr>
-    <td><h3>Ranking</h3></td>
-    <td><h3>Name</h3></td>
-    <td><h3>Upvote</h3></td>
-  </tr>
-  <% @albums.each do |album| %>
-    <tr>
-      <td><h5>Ranked: <%= album.votes %></h5></td>
-      <td><h5><%= link_to album.title, album_path(album.id) %></h5></td>
-      <td>
-        <%= form_for album, method: :patch, action: edit_album_path(album.id) do |f| %>
-          <%= f.hidden_field :votes, value: (album.votes += 1) %>
-          <%= f.submit "Upvote", class: "btn btn-primary" %>
-        <% end %>
-      </td>
-    </tr>
-  <% end %>
-</table>
-
+<%= render "shared/table", objects: @albums %>
 
 <%= link_to "Add an Album", new_album_path, class: "btn btn-default" %>

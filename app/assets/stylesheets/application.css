@@ -33,7 +33,7 @@ h3 {
 }
 
 h5 {
-  font-size: 1.3em;
+  font-size: 1.1em;
 }
 
 hr {
@@ -89,6 +89,8 @@ a {
 
 }
 
+
+
 .navbar-default .navbar-nav li a {
   font-size: 18pt;
   color: #109298;
@@ -96,11 +98,17 @@ a {
 
 .navbar-default .navbar-nav .dropdown-menu li a {
   font-size: 1.2em;
-  padding: 3px;
+  padding-left: 10px;
 }
 
 .navbar-default .navbar-nav .dropdown-menu .link-to-all {
   color: #D1542A;
+}
+
+.dropdown-menu {
+  background-color: #f8f8f8;
+  border: none;
+  text-align: right;
 }
 
 .btn {

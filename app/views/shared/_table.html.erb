@@ -1,0 +1,19 @@
+<table class = "table">
+  <tr>
+    <td><h3>Ranking</h3></td>
+    <td><h3>Name</h3></td>
+    <td><h3>Upvote</h3></td>
+  </tr>
+  <% objects.each do |object| %>
+    <tr>
+      <td><h5>Ranked: <%= object.votes %></h5></td>
+      <td><h5><%= link_to object.title, object %></h5></td>
+      <td>
+        <%= form_for object do |f| %>
+          <%= f.hidden_field :votes, value: (object.votes += 1) %>
+          <%= f.submit "Upvote", class: "btn btn-primary" %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

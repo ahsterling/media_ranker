@@ -6,13 +6,13 @@
   </div>
 </div>
 <div class = "row">
-  <div class = "show col-md-8">
+  <div class = "show col-md-7">
     <%= image_tag "#{@movie.imageurl}", class: "img-rounded img-responsive" %>
     <h3>Directed by: <%= @movie.director %></h3>
     <p> <%= @movie.description %></p>
 
   </div>
-  <div class = "show buttons col-md-4">
+  <div class = "show buttons col-md-5">
     <p>
       <%= form_for @movie, method: :patch, action: edit_movie_path(@movie.id) do |f| %>
         <%= f.hidden_field :votes, value: (@movie.votes += 1) %>
@@ -20,8 +20,8 @@
       <% end %>
     </p>
 
-    <p><%= button_to "Edit #{@movie.title}", edit_movie_path(@movie.id), method: :get, class: "btn btn-sm btn-default" %></p>
-    <p><%= button_to "Delete #{@movie.title}", movie_path(@movie.id), method: :delete, class: "btn btn-sm btn-danger" %></p>
+    <p><%= button_to "Edit #{@movie.button_title}", edit_movie_path(@movie.id), method: :get, class: "btn btn-sm btn-default" %></p>
+    <p><%= button_to "Delete #{@movie.button_title}", movie_path(@movie.id), method: :delete, class: "btn btn-sm btn-danger" %></p>
 
     <p><%= link_to "View All Movies", movies_path, class: "btn btn-sm btn-default" %></p>
     <p><%= link_to "View All Media", root_path, class: "btn btn-sm btn-default" %></p>

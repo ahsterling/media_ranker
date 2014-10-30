@@ -1,25 +1,30 @@
 <div class = "row">
-  <div class = "show col-xs-11">
-    <h2><%= @album.title %></h2>
+  <div class = "show col-md-12">
+    <h2><%= @album.title %> <small>Ranking: <%= @album.votes %></small></h2>
     <hr>
+  </div>
+</div>
+<div class = "row">
+  <div class = "show col-md-7">
     <%= image_tag "#{@album.imageurl}", class: "img-rounded img-responsive" %>
     <h3>Recorded by: <%= @album.artist %></h3>
     <p> <%= @album.description %></p>
-    <h4>Ranking: <%= @album.votes %></h4>
-
-    <%= form_for @album, method: :patch, action: edit_album_path(@album.id) do |f| %>
-      <%= f.hidden_field :votes, value: (@album.votes += 1) %>
-      <%= f.submit "Upvote", class: "btn btn-sm btn-primary" %>
-    <% end %>
-
-    <%= button_to "Edit #{@album.title}", edit_album_path(@album.id), method: :get, class: "btn btn-sm btn-default" %>
-
-    <%= button_to "Delete #{@album.title}", album_path(@album.id), method: :delete, class: "btn btn-sm btn-danger" %>
-
-
+  </div>
+  <div class = "show col-md-5">
     <p>
-      <%= link_to "View All Albums", albums_path, class: "btn btn-sm btn-default" %>
-      <%= link_to "View All Media", root_path, class: "btn btn-sm btn-default" %>
+      <%= form_for @album, method: :patch, action: edit_album_path(@album.id) do |f| %>
+        <%= f.hidden_field :votes, value: (@album.votes += 1) %>
+        <%= f.submit "Upvote", class: "btn btn-sm btn-primary" %>
+      <% end %>
+    </p>
+
+    <p><%= button_to "Edit #{@album.button_title}", edit_album_path(@album.id), method: :get, class: "btn btn-sm btn-default" %></p>
+
+    <p><%= button_to "Delete #{@album.button_title}", album_path(@album.id), method: :delete, class: "btn btn-sm btn-danger" %></p>
+
+
+    <p><%= link_to "View All Albums", albums_path, class: "btn btn-sm btn-default" %></p>
+    <p><%= link_to "View All Media", root_path, class: "btn btn-sm btn-default" %></p>
     </p>
   </div>
 </div> <!-- row -->

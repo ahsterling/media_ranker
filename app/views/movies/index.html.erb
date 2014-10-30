@@ -1,24 +1,5 @@
 <h2>All Movies</h2>
 
-<table class = "table">
-  <tr>
-    <td><h3>Ranking</h3></td>
-    <td><h3>Name</h3></td>
-    <td><h3>Upvote</h3></td>
-  </tr>
-  <% @movies.each do |movie| %>
-    <tr>
-      <td><h5>Ranked: <%= movie.votes %></h5></td>
-      <td><h5><%= link_to movie.title, movie_path(movie.id) %></h5></td>
-      <td>
-        <%= form_for movie, method: :patch, action: edit_movie_path(movie.id) do |f| %>
-          <%= f.hidden_field :votes, value: (movie.votes += 1) %>
-          <%= f.submit "Upvote", class: "btn btn-primary" %>
-        <% end %>
-      </td>
-    </tr>
-  <% end %>
-</table>
-
+<%= render "shared/table", objects: @movies %>
 
 <%= link_to "Add a Movie", new_movie_path, class: "btn btn-default" %>
