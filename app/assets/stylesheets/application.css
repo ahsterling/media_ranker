@@ -85,11 +85,9 @@ a {
   font-size: 25pt;
   color: #D1542A;
   margin-top: 15px;
-  padding-left:30px;
+  padding-left:18px;
 
 }
-
-
 
 .navbar-default .navbar-nav li a {
   font-size: 18pt;
@@ -180,6 +178,9 @@ form {
   margin-top: 20px;
 }
 
+.navbar .container-fluid {
+  padding-left: 3px;
+}
 
 
 @media (max-width: 450px) {
