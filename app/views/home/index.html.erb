@@ -3,30 +3,46 @@
   <div class = "main col-sm-4">
     <h2>Top Movies</h2>
     <hr>
-    <% @movies.each do |movie| %>
-       <h3><%= link_to movie.title, movie_path(movie.id) %></h3>
-       <p>Ranked <%= movie.votes %></p>
+    <% if @movies.empty? %>
+      <p>Oh no!  There aren't any movies yet.</p>
+      <%= link_to "add one!", new_movie_path %>
+    <% else %>
+
+      <% @movies.each do |movie| %>
+        <h3><%= link_to movie.title, movie_path(movie.id) %></h3>
+        <p>Ranked <%= movie.votes %></p>
+      <% end %>
+      <%= link_to "See All Movies", movies_path, class: 'btn btn-default' %>
     <% end %>
-    <%= link_to "See All Movies", movies_path, class: 'btn btn-default' %>
   </div>
 
   <div class = "col-sm-4">
     <h2>Top Books</h2>
     <hr>
-    <% @books.each do |book| %>
-       <h3><%= link_to book.title, book_path(book.id) %></h3>
-       <p>Ranked <%= book.votes %></p>
+    <% if @books.empty? %>
+      <p>Oh no!  There aren't any books yet.</p>
+      <%= link_to "add one!", new_book_path %>
+    <% else %>
+      <% @books.each do |book| %>
+         <h3><%= link_to book.title, book_path(book.id) %></h3>
+         <p>Ranked <%= book.votes %></p>
+      <% end %>
+      <%= link_to "See All Books", books_path, class: 'btn btn-default' %>
     <% end %>
-    <%= link_to "See All Books", books_path, class: 'btn btn-default' %>
   </div>
 
   <div class = "col-sm-4">
     <h2>Top Albums</h2>
     <hr>
-    <% @albums.each do |album| %>
-       <h3><%= link_to album.title, album_path(album.id) %></h3>
-       <p>Ranked <%= album.votes %></p>
+    <% if @albums.empty? %>
+      <p>Oh no!  There aren't any books yet.</p>
+      <%= link_to "add one!", new_book_path %>
+    <% else %>
+      <% @albums.each do |album| %>
+         <h3><%= link_to album.title, album_path(album.id) %></h3>
+         <p>Ranked <%= album.votes %></p>
+      <% end %>
+      <%= link_to "See All Albums", albums_path, class: 'btn btn-default' %>
     <% end %>
-    <%= link_to "See All Albums", albums_path, class: 'btn btn-default' %>
   </div>
 </div>
