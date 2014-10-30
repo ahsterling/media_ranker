@@ -30,9 +30,33 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><%= link_to "Movies", movies_path %></li>
-          <li><%= link_to "Books", books_path %></li>
-          <li><%= link_to "Albums", albums_path %></li>
+          <li class="dropdown">
+            <%= link_to "Movies", movies_path %>
+            <ul class = "dropdown-menu">
+              <% @movies.each do |movie| %>
+                <li><%= link_to movie.title, movie_path(movie.id) %></li>
+              <% end %>
+                <li><%= link_to "See All Movies", movies_path, class: "link-to-all" %></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <%= link_to "Books", movies_path %>
+            <ul class = "dropdown-menu">
+              <% @books.each do |book| %>
+                <li><%= link_to book.title, book_path(book.id) %></li>
+              <% end %>
+                <li><%= link_to "See All Books", books_path, class: "link-to-all" %></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <%= link_to "Albums", albums_path %>
+            <ul class = "dropdown-menu">
+              <% @albums.each do |album| %>
+                <li><%= link_to album.title, album_path(album.id) %></li>
+              <% end %>
+                <li><%= link_to "See All Albums", albums_path, class: "link-to-all" %></li>
+            </ul>
+          </li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

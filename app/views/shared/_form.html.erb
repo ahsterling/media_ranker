@@ -1,0 +1,16 @@
+<%= bootstrap_form_for media do |f| %>
+
+  <!-- <div class = "form-group"> -->
+    <%= f.text_field :title %>
+  <!-- </div> -->
+  <!-- <div class = "form-group"> -->
+    <%= f.text_field creator %>
+  <!-- </div> -->
+  <!-- <div class = "form-group"> -->
+    <%= f.text_area :description %>
+  <!-- </div> -->
+    <%= f.text_field :imageurl, label: "Image URL" %>
+
+    <%= f.submit  %>
+
+<% end %>

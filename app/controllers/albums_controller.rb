@@ -12,7 +12,7 @@ class AlbumsController < ApplicationController
   end
 
   def create
-    @album = Album.new(params.require(:album).permit(:title, :artist, :description, :votes))
+    @album = Album.new(params.require(:album).permit(:title, :artist, :description, :imageurl, :votes))
     @album.votes = 0
     if @album.save
       redirect_to albums_path
@@ -27,7 +27,7 @@ class AlbumsController < ApplicationController
 
   def update
     @album = Album.find_by(id: params[:id])
-    if @album.update(params.require(:album).permit(:title, :artist, :description, :votes))
+    if @album.update(params.require(:album).permit(:title, :artist, :description, :imageurl, :votes))
       redirect_to album_path(@album.id)
     else
       render :edit
